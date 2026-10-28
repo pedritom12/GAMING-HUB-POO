@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GamingHub - Publicar Juego</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="card card-wide">
+    <h2>Publicar tu Juego</h2>
+
+    <form id="form-upload-game">
+      
+      <div class="grupo-campo">
+        <label for="game-title">Título del Juego</label>
+        <input type="text" id="game-title" placeholder="Ej: Super Adventure" required>
+      </div>
+
+      <div class="grupo-campo">
+        <label for="game-genre">Género / Categoria</label>
+        <input type="text" id="game-genre" placeholder="Ej: Acción, Puzzle, RPG" required>
+      </div>
+
+      <div class="grupo-campo">
+        <label for="game-cover">URL de la Imagen de Portada</label>
+        <input type="url" id="game-cover" placeholder="https://ejemplo.com/imagen.png" required>
+      </div>
+
+      <div class="grupo-campo">
+        <label for="game-file">Link del Juego / Ejecutable</label>
+        <input type="url" id="game-file" placeholder="Link de descarga o URL del juego" required>
+      </div>
+
+      <button type="submit" class="btn">Publicar Juego</button>
+      
+      <p class="switch-link">
+        <a href="dashboard.html">Volver a la Biblioteca</a>
+      </p>
+
+    </form>
+  </div>
+
+</body>
+</html>

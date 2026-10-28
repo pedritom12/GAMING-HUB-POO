@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GamingHub - Mi Launcher</title>
+  <link rel="stylesheet" href="style120.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Barra superior estilo Launcher -->
+  <header class="navbar">
+    <div class="brand">
+      <h1>GAMING<span>HUB</span></h1>
+    </div>
+    
+    <div class="user-panel">
+      <button id="btn-open-modal" class="btn btn-neon">+ Cargar JSON</button>
+      <a href="index.html" class="btn-logout">Cerrar Sesión</a>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="dashboard-container">
+    
+    <section class="section-title">
+      <h2>Tu Biblioteca Personal</h2>
+      <p>Importá la configuración de tus juegos en formato <code>.json</code> para ejecutarlos desde acá.</p>
+    </section>
+
+    <!-- Estado vacío (Se muestra cuando no hay juegos) -->
+    <div id="empty-state" class="empty-state">
+      <div class="empty-icon">🎮</div>
+      <h3>No tenés juegos cargados</h3>
+      <p>Hacé clic en <strong>"+ Cargar JSON"</strong> para importar tus títulos.</p>
+    </div>
+
+    <!-- Grilla donde JavaScript insertará dinámicamente las tarjetas -->
+    <section id="games-grid" class="games-grid hidden"></section>
+
+  </main>
+
+  <!-- Ventana Modal para subir JSON -->
+  <div id="modal-json" class="modal hidden">
+    <div class="modal-content card">
+      <span id="btn-close-modal" class="close-btn">&times;</span>
+      <h2>Importar Juego (JSON)</h2>
+      
+      <form id="form-json">
+        <div class="grupo-campo">
+          <label for="json-input">Pegá el código JSON de tu juego:</label>
+          <textarea id="json-input" rows="8" placeholder='{
+  "titulo": "Mi Juego",
+  "genero": "Acción",
+  "portada": "https://link-de-imagen.png",
+  "ejecutable": "https://link-al-juego.com"
+}' required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-neon">Cargar en Biblioteca</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
