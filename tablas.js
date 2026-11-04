@@ -175,5 +175,36 @@ function listarCuenta(){
 
  }
 
-/// categoria
+/// CATEGORIA
 
+ function agregarCuenta(nombre){
+    const sql= `
+            INSER INTO cuenta (nombre) VALUES (?)
+    `;
+    db.query(sql, [nombre],
+        (err, resultado) => {
+            if (err) { console.log ("error al agregar la categoria:", err);
+                return ;
+            }
+            console.log("categoria agregada correctamente")
+        }
+    
+    )
+ };
+
+/// RESEÑA
+
+ function agregarCuenta(gmail){
+    const sql= `
+            INSER INTO cuenta (gmail) VALUES (?)
+    `;
+    db.query(sql, [gmail],
+        (err, resultado) => {
+            if (err) { console.log ("error al agregar la reseña:", err);
+                return ;
+            }
+            console.log("reseña agregada correctamente")
+        }
+    
+    )
+ };
