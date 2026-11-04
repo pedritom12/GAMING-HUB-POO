@@ -128,7 +128,7 @@ const sql_juego =`
 
  /// funciones ///
 
- /// JUEGO
+ /// CUENTA
 
  function agregarCuenta(nombre,gmail,contraseña){
     const sql= `
