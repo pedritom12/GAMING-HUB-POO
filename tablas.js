@@ -145,6 +145,8 @@ const sql_juego =`
     )
  };
 
+/// CATEGORIA
+
  function eliminarCuenta(id){
     const sql = `
         DELETE FROM cuenta 
@@ -161,7 +163,9 @@ const sql_juego =`
         })
  }
 
- function listarCuenta(){
+/// RESEÑAS
+
+function listarCuenta(){
     const sql= `SELECT *
     FROM cuenta`;
 
