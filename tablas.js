@@ -196,7 +196,7 @@ function listarCuenta(){
 // esta es la funcion agregar cuenta
  function agregarCuenta(nombre,gmail){
     const sql= `
-            INSER INTO cuenta (nombre,gmail,contraseña) VALUES (?, ?)
+            INSER INTO cuenta (nombre,gmail) VALUES (?, ?)
     `;
     db.query(sql, [nombre, gmail],
         (err, resultado) => {
