@@ -129,7 +129,7 @@ const sql_juego =`
  /// funciones ///
 
  /// CUENTA
-
+// esta es la funcion agregar cuenta
  function agregarCuenta(nombre,gmail,contraseña){
     const sql= `
             INSER INTO cuenta (nombre,gmail,contraseña) VALUES (?, ?, ?)
@@ -145,8 +145,7 @@ const sql_juego =`
     )
  };
 
-/// CATEGORIA
-
+// esta es la funcion eliminar cuenta
  function eliminarCuenta(id){
     const sql = `
         DELETE FROM cuenta 
@@ -162,9 +161,7 @@ const sql_juego =`
             console.log("cuenta eliminada");
         })
  }
-
-/// RESEÑAS
-
+// esta es la funcion listar cuenta
 function listarCuenta(){
     const sql= `SELECT *
     FROM cuenta`;
@@ -177,3 +174,6 @@ function listarCuenta(){
     })
 
  }
+
+/// categoria
+
