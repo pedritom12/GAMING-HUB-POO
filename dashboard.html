@@ -8,39 +8,60 @@
 </head>
 <body class="dashboard-body">
 
-  <!-- Barra superior estilo Launcher -->
+  
   <header class="navbar">
     <div class="brand">
       <h1>GAMING<span>HUB</span></h1>
     </div>
+
+    
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="¿Qué jugarás hoy?">
+      <span class="search-icon">🔍</span>
+    </div>
     
     <div class="user-panel">
-      <button id="btn-open-modal" class="btn btn-neon">+ Cargar JSON</button>
+      <button id="btn-open-library-modal" class="btn btn-neon">+ Crear Biblioteca</button>
+      <button id="btn-open-modal" class="btn btn-neon" style="background: linear-gradient(135deg, #10b981, #059669);">+ Cargar JSON</button>
       <a href="index.html" class="btn-logout">Cerrar Sesión</a>
     </div>
   </header>
 
-  <!-- Contenido principal -->
+  
   <main class="dashboard-container">
     
     <section class="section-title">
       <h2>Tu Biblioteca Personal</h2>
-      <p>Importá la configuración de tus juegos en formato <code>.json</code> para ejecutarlos desde acá.</p>
+      <p>Creá tus propias bibliotecas o importá juegos en formato <code>.json</code>.</p>
     </section>
 
-    <!-- Estado vacío (Se muestra cuando no hay juegos) -->
+    
     <div id="empty-state" class="empty-state">
       <div class="empty-icon">🎮</div>
-      <h3>No tenés juegos cargados</h3>
-      <p>Hacé clic en <strong>"+ Cargar JSON"</strong> para importar tus títulos.</p>
+      <h3>No tenés bibliotecas ni juegos cargados</h3>
+      <p>Hacé clic en <strong>"+ Crear Biblioteca"</strong> o <strong>"+ Cargar JSON"</strong> para empezar.</p>
     </div>
-
-    <!-- Grilla donde JavaScript insertará dinámicamente las tarjetas -->
-    <section id="games-grid" class="games-grid hidden"></section>
 
   </main>
 
-  <!-- Ventana Modal para subir JSON -->
+  <!-- MODAL CREAR BIBLIOTECA -->
+  <div id="modal-library" class="modal hidden">
+    <div class="modal-content card">
+      <span id="btn-close-library-modal" class="close-btn">&times;</span>
+      <h2>Crear Nueva Biblioteca</h2>
+      
+      <form id="form-library">
+        <div class="grupo-campo">
+          <label for="library-name">Nombre de la Biblioteca:</label>
+          <input type="text" id="library-name" placeholder="Ej: RPGs, Favoritos, Indie..." required style="width: 100%; background-color: #080d1a; border: 1px solid #334155; border-radius: 6px; color: #f8fafc; padding: 10px; font-size: 14px; outline: none;">
+        </div>
+
+        <button type="submit" class="btn btn-neon" style="width: 100%; margin-top: 10px;">Crear Biblioteca</button>
+      </form>
+    </div>
+  </div>
+
+ 
   <div id="modal-json" class="modal hidden">
     <div class="modal-content card">
       <span id="btn-close-modal" class="close-btn">&times;</span>
@@ -49,12 +70,16 @@
       <form id="form-json">
         <div class="grupo-campo">
           <label for="json-input">Pegá el código JSON de tu juego:</label>
-          <textarea id="json-input" rows="8" placeholder='{
-  "titulo": "Mi Juego",
-  "genero": "Acción",
-  "portada": "https://link-de-imagen.png",
-  "ejecutable": "https://link-al-juego.com"
-}' required></textarea>
+          <textarea id="json-input" rows="8" placeholder='[
+  {
+    "titulo": "Wayfarer",
+    "genero": "Acción",
+    "anio": "2026",
+    "seccion": "Juegos Nuevos",
+    "portada": "https://link-de-imagen.png",
+    "ejecutable": "https://link-al-juego.com"
+  }
+]' required></textarea>
         </div>
 
         <button type="submit" class="btn btn-neon">Cargar en Biblioteca</button>
