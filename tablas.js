@@ -176,10 +176,10 @@ function listarCuenta(){
  }
 
  /// CATEGORIA
-// esta es la funcion agregar cuenta
- function agregarCuenta(nombre){
+// esta es la funcion agregar categoria
+ function agregarCategoria(nombre){
     const sql= `
-            INSER INTO cuenta (nombre) VALUES (?)
+            INSER INTO categoria (nombre) VALUES (?)
     `;
     db.query(sql, [nombre],
         (err, resultado) => {
@@ -192,13 +192,42 @@ function listarCuenta(){
     )
  };
 
- /// RESEÑA
-// esta es la funcion agregar cuenta
- function agregarCuenta(nombre,gmail){
-    const sql= `
-            INSER INTO cuenta (nombre,gmail) VALUES (?, ?)
+// esta es la funcion eliminar categoria
+ function eliminarCategoria(id){
+    const sql = `
+        DELETE FROM categoria 
+        WHERE id_categoria= ?
     `;
-    db.query(sql, [nombre, gmail],
+        db.query(sql, [id], (err,resultado) => {
+            if (err){console.log("error al eliminar la categoria:", err);
+                return;
+            }
+            if (resultado.affectedRows === 0){ console.log("no se encontro esa categoria");
+                return;
+            }
+            console.log("categoria eliminada");
+        })
+ }
+// esta es la funcion listar categoria
+function listarCategoria(){
+    const sql= `SELECT *
+    FROM categoria`;
+
+    db.query(sql,(err, resultado) => {
+        if (err){console.log("error al listar categorias:", err);
+            return;
+        }
+        console.log("resultados");
+    })
+
+ }
+/// RESEÑA
+// esta es la funcion agregar reseña
+ function agregarReseña(calificacion,comentario,cuenta,juego){
+    const sql= `
+            INSER INTO reseña (calificacion,comentario,cuenta,juego) VALUES (?, ?, ?, ?)
+    `;
+    db.query(sql, [calificacion,comentario,cuenta,juego],
         (err, resultado) => {
             if (err) { console.log ("error al agregar la reseña:", err);
                 return ;
@@ -209,4 +238,126 @@ function listarCuenta(){
     )
  };
 
+// esta es la funcion eliminar reseña
+ function eliminarReseña(id){
+    const sql = `
+        DELETE FROM reseña 
+        WHERE id_reseña= ?
+    `;
+        db.query(sql, [id], (err,resultado) => {
+            if (err){console.log("error al eliminar la reseña:", err);
+                return;
+            }
+            if (resultado.affectedRows === 0){ console.log("no se encontro esa reseña");
+                return;
+            }
+            console.log("reseña eliminada");
+        })
+ }
+// esta es la funcion listar reseña
+function listarReseña(){
+    const sql= `SELECT *
+    FROM reseña`;
 
+    db.query(sql,(err, resultado) => {
+        if (err){console.log("error al listar reseñas:", err);
+            return;
+        }
+        console.log("resultados");
+    })
+
+ }
+
+/// BIBLIOTECA
+// esta es la funcion agregar biblioteca
+ function agregarBiblioteca(biblio,juego){
+    const sql= `
+            INSER INTO bliblioteca (biblio,juego) VALUES (?, ?)
+    `;
+    db.query(sql, [nombre],
+        (err, resultado) => {
+            if (err) { console.log ("error al agregar la biblioteca:", err);
+                return ;
+            }
+            console.log("biblioteca agregada correctamente")
+        }
+    
+    )
+ };
+
+// esta es la funcion eliminar biblioteca
+ function eliminarCategoria(id){
+    const sql = `
+        DELETE FROM biblioteca 
+        WHERE id_biblioteca= ?
+    `;
+        db.query(sql, [id], (err,resultado) => {
+            if (err){console.log("error al eliminar la biblioteca:", err);
+                return;
+            }
+            if (resultado.affectedRows === 0){ console.log("no se encontro esa biblioteca");
+                return;
+            }
+            console.log("biblioteca eliminada");
+        })
+ }
+// esta es la funcion listar biblioteca
+function listarBiblioteca(){
+    const sql= `SELECT *
+    FROM biblioteca`;
+
+    db.query(sql,(err, resultado) => {
+        if (err){console.log("error al listar bibliotecas:", err);
+            return;
+        }
+        console.log("resultados");
+    })
+
+ }
+
+/// MI_JUEGO
+// esta es la funcion agregar tabla de mi juego
+ function agregarMi_juego(nombre_zip, ruta_zip, ruta_extraida, archivo){
+    const sql= `
+            INSER INTO Mi_juego (nombre_zip, ruta_zip, ruta_extraida, archivo) VALUES (?, ?, ?, ?)
+    `;
+    db.query(sql, [nombre_zip, ruta_zip, ruta_extraida, archivo],
+        (err, resultado) => {
+            if (err) { console.log ("error al agregar la categoria:", err);
+                return ;
+            }
+            console.log("categoria agregada correctamente")
+        }
+    
+    )
+ };
+
+// esta es la funcion eliminar Mi_juego
+ function eliminarMi_juego(id){
+    const sql = `
+        DELETE FROM Mi_juego 
+        WHERE id_mi_juego= ?
+    `;
+        db.query(sql, [id], (err,resultado) => {
+            if (err){console.log("error al eliminar Mi_juego:", err);
+                return;
+            }
+            if (resultado.affectedRows === 0){ console.log("no se encontro mi_juego");
+                return;
+            }
+            console.log("mi_juego eliminado");
+        })
+ }
+// esta es la funcion listar Mi_juego
+function listarMi_juego(){
+    const sql= `SELECT *
+    FROM mi_juego`;
+
+    db.query(sql,(err, resultado) => {
+        if (err){console.log("error al listar mi_juego:", err);
+            return;
+        }
+        console.log("resultados");
+    })
+
+ }
