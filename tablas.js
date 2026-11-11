@@ -336,7 +336,7 @@ function listarBiblioteca(){
  function eliminarMi_juego(id){
     const sql = `
         DELETE FROM Mi_juego 
-        WHERE id_mi_juego= ?
+        WHERE id_mijuego= ?
     `;
         db.query(sql, [id], (err,resultado) => {
             if (err){console.log("error al eliminar Mi_juego:", err);
