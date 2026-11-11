@@ -3,7 +3,7 @@ const conexion = require("./db");
 /// tabla de juego
 const sql_juego =`
     CREATE TABLE IF NOT EXISTS juegos (
-        id_juego INT AUTO_INCREMENT PRIMARY,
+        id_juego INT AUTO_INCREMENT PRIMARY KEY,
         nombre VARCHAR(40) NOT null,
         descripcion VARCHAR(240) NOT null,
         fk_cat INT,
@@ -25,7 +25,7 @@ const sql_juego =`
 
  const sql_categoria =`
     CREATE TABLE IF NOT EXISTS juegos (
-        id_cat INT AUTO_INCREMENT PRIMARY,
+        id_cat INT AUTO_INCREMENT PRIMARY KEY,
         nombre VARCHAR(40) NOT null,
     
 )
@@ -42,7 +42,7 @@ const sql_juego =`
 
  const sql_reseña =`
     CREATE TABLE IF NOT EXISTS juegos (
-        id_reeseña INT AUTO_INCREMENT PRIMARY,
+        id_reeseña INT AUTO_INCREMENT PRIMARY KEY,
         calificacon INT NOT NULL CHECK(calificacion BETWEEN 1 AND 5),
         comentario TEXT,
         fk_cuenta INT NOT NULL,
@@ -63,7 +63,7 @@ const sql_juego =`
 
  const sql_cuenta =`
     CREATE TABLE IF NOT EXISTS juegos (
-        id_cuenta INT AUTO_INCREMENT PRIMARY,
+        id_cuenta INT AUTO_INCREMENT PRIMARY KEY,
         nombre VARCHAR(20) NOT NULL,
         gamil TEXT NOT NULL UNIQUE,
         contraseña TEXT NOT NULL UNIQUE,
@@ -87,7 +87,7 @@ const sql_juego =`
 
  const sql_biblo =`
     CREATE TABLE IF NOT EXISTS juegos (
-        id_biblo INT AUTO_INCREMENT PRIMARY,
+        id_biblo INT AUTO_INCREMENT PRIMARY KEY,
         fk_juego INT NOT NULL,
         FOREIGNT KEY (fk_juego) REFERENCE juego(id_juego),
         
@@ -107,7 +107,7 @@ const sql_juego =`
 
  const sql_mi_juego =`
     CREATE TABLE IF NOT EXISTS juegos (
-        id_mijuego INT AUTO_INCREMENT PRIMARY,
+        id_mijuego INT AUTO_INCREMENT PRIMARY KEY,
         nombre_zip TEXT NOT NULL,
         ruta_zip TEXT NOT NULL,
         ruta_extraida TEXT NOT NULL,
@@ -270,11 +270,11 @@ function listarReseña(){
 
 /// BIBLIOTECA
 // esta es la funcion agregar biblioteca
- function agregarBiblioteca(biblio,juego){
+ function agregarBiblioteca(fk_juego){
     const sql= `
-            INSER INTO bliblioteca (biblio,juego) VALUES (?, ?)
+            INSER INTO bliblioteca (fk_juego) VALUES (?)
     `;
-    db.query(sql, [nombre],
+    db.query(sql, [fk_juego],
         (err, resultado) => {
             if (err) { console.log ("error al agregar la biblioteca:", err);
                 return ;
@@ -289,7 +289,7 @@ function listarReseña(){
  function eliminarCategoria(id){
     const sql = `
         DELETE FROM biblioteca 
-        WHERE id_biblioteca= ?
+        WHERE id_biblo= ?
     `;
         db.query(sql, [id], (err,resultado) => {
             if (err){console.log("error al eliminar la biblioteca:", err);
