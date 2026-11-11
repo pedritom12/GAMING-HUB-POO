@@ -42,7 +42,7 @@ const sql_juego =`
 
  const sql_reseña =`
     CREATE TABLE IF NOT EXISTS juegos (
-        id_reeseña INT AUTO_INCREMENT PRIMARY KEY,
+        id_reseña INT AUTO_INCREMENT PRIMARY KEY,
         calificacon INT NOT NULL CHECK(calificacion BETWEEN 1 AND 5),
         comentario TEXT,
         fk_cuenta INT NOT NULL,
@@ -196,7 +196,7 @@ function listarCuenta(){
  function eliminarCategoria(id){
     const sql = `
         DELETE FROM categoria 
-        WHERE id_categoria= ?
+        WHERE id_cat= ?
     `;
         db.query(sql, [id], (err,resultado) => {
             if (err){console.log("error al eliminar la categoria:", err);
