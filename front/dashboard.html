@@ -21,6 +21,8 @@
     </div>
     
     <div class="user-panel">
+      
+      <button id="btn-open-auth" class="btn-profile-icon" title="Mi Cuenta">👤</button>
       <button id="btn-open-library-modal" class="btn btn-neon">+ Crear Biblioteca</button>
       <button id="btn-open-modal" class="btn btn-neon" style="background: linear-gradient(135deg, #10b981, #059669);">+ Cargar JSON</button>
       <a href="index.html" class="btn-logout">Cerrar Sesión</a>
@@ -44,7 +46,55 @@
 
   </main>
 
-  <!-- MODAL CREAR BIBLIOTECA -->
+  
+  <div id="auth-sidebar" class="auth-sidebar-overlay hidden">
+    <div class="auth-sidebar-content">
+      <button id="btn-close-auth" class="close-sidebar-btn">&times;</button>
+      
+      <div class="auth-logo">GAMING<span>HUB</span></div>
+
+      
+      <div class="auth-tabs">
+        <button class="tab-btn active" data-target="register-section">Registrar</button>
+        <button class="tab-btn" data-target="login-section">Iniciar sesión</button>
+      </div>
+
+      
+      <div id="register-section" class="auth-form-section">
+        <h3>Crear una cuenta GamingHub</h3>
+        
+        <div class="auth-buttons-list">
+          <button class="auth-ext-btn"> &nbsp; Con Apple</button>
+          <button class="auth-ext-btn">G &nbsp; Con Google</button>
+          <button class="auth-ext-btn">🪟 &nbsp; Con Microsoft</button>
+          <button class="auth-ext-btn">🔑 &nbsp; Con passkey</button>
+        </div>
+
+        <p class="auth-footer-text">
+          Al crear una cuenta, indicás que aceptás la información de el centro de privacidad y aceptas las reglas de acuerdo con el usuario.
+        </p>
+      </div>
+
+      
+      <div id="login-section" class="auth-form-section hidden">
+        <h3>Iniciar sesión en GamingHub</h3>
+        
+        <div class="auth-buttons-list">
+          <button class="auth-ext-btn"> &nbsp; Continuar con Apple</button>
+          <button class="auth-ext-btn">G &nbsp; Continuar con Google</button>
+          <button class="auth-ext-btn">🪟 &nbsp; Continuar con Microsoft</button>
+          <button class="auth-ext-btn">🔑 &nbsp; Continuar con passkey</button>
+        </div>
+
+        <p class="auth-footer-text">
+          Accedé de forma rápida y segura a tus bibliotecas de juegos sincronizadas.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+ 
   <div id="modal-library" class="modal hidden">
     <div class="modal-content card">
       <span id="btn-close-library-modal" class="close-btn">&times;</span>
@@ -61,7 +111,7 @@
     </div>
   </div>
 
- 
+  
   <div id="modal-json" class="modal hidden">
     <div class="modal-content card">
       <span id="btn-close-modal" class="close-btn">&times;</span>
