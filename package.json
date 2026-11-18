@@ -1,0 +1,12 @@
+{
+  "name": "gaming-hub-poo",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node database/server.js",
+    "test": "node --test database/tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
